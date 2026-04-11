@@ -1,7 +1,7 @@
 # CylinderDepth
 CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation
 
-[Paper](https://arxiv.org/abs/2511.16428v1) | [Supplementary Material](https://arxiv.org/src/2511.16428v1/anc/CylinderDepth_supp.pdf)
+[Paper](https://arxiv.org/abs/2511.16428) | [Supplementary Material](https://arxiv.org/src/2511.16428v2/anc/CylinderDepth_supp.pdf)
 
 ## Introduction
 
