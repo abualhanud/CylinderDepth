@@ -1,10 +1,113 @@
+
 # CylinderDepth
-CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation
 
-[Paper](https://arxiv.org/abs/2511.16428) | [Supplementary Material](https://arxiv.org/src/2511.16428v2/anc/CylinderDepth_supp.pdf)
+  
 
-## Introduction
+**CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation**
 
-Self-supervised surround-view depth estimation enables dense, low-cost 3D perception with a 360° field of view from multiple minimally overlapping images. Yet, most existing methods suffer from depth estimates that are inconsistent across overlapping images. To address this limitation, we propose a novel geometry-guided method for calibrated, time-synchronized multi-camera rigs that predicts dense metric depth. Our approach targets two main sources of inconsistency: the limited receptive field in border regions of single-image depth estimation, and the difficulty of correspondence matching. We mitigate these two issues by extending the receptive field across views and restricting cross-view attention to a small neighborhood. To this end, we establish the neighborhood relationships between images by mapping the image-specific feature positions onto a shared cylinder. Based on the cylindrical positions, we apply an explicit spatial attention mechanism, with non-learned weighting, that aggregates features across images according to their distances on the cylinder. The modulated features are then decoded into a depth map for each view. Evaluated on the DDAD and nuScenes datasets, our method improves both cross-view depth consistency and overall depth accuracy compared with state-of-the-art approaches.
 
-## Code coming soon
+[Project Page](https://abualhanud.github.io/CylinderDepthPage/) | [Paper](https://arxiv.org/abs/2511.16428) | [Supplementary Material](https://arxiv.org/src/2511.16428v3/anc/CylinderDepth_supp.pdf)
+
+
+  
+
+
+
+  
+
+# Data Preparation
+
+
+
+  
+
+To generate the ground-truth depth labels:
+
+```bash
+python tools/export_gt_depth_ddad.py
+python tools/export_gt_depth_nusc.py
+```
+
+
+To generate the overlap ground-truth depth labels:
+
+```bash
+python tools/export_overlap_depth_ddad.py
+python tools/export_overlap_depth_nuscenes.py
+```
+
+
+# Checkpoints
+
+  
+
+You can download the pre-trained checkpoints for ddad and nuscens here:
+https://huggingface.co/samerabualhanud/CylinderDepth/tree/main
+  
+
+# Environment Setup
+
+  
+```bash
+ cd CylinderDepth
+ conda env create -f CylinderDepth.yml
+ conda activate CylinderDepth
+ pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
+ cd external/dgp
+ pip install -r requirements.txt -r requirements-dev.txt
+ pip install --editable .
+```
+  
+
+# Training
+
+  
+
+To train the model:
+
+Change the data paths in ```dataset/ddad_dataset.py```,```dataset/nusc_dataset.py``` and the config files.
+  
+### DDAD
+```bash
+python  train.py  \
+
+--config_file  ./configs/ddp/nuscenes/nusc_baseline_352_ddp_min_1.0_front_sp_con_0.001_sptp_con_0.05_flipv5_34_106.yaml
+```
+
+### nuScenes
+```bash
+python  train.py  \
+
+--config_file  ./configs/ddp/baseline_ddp_384_front_sp_con_pre_0.001_sptp_con_0.2_flipv5.yaml
+``` 
+
+
+# Evaluation
+
+To evaluate the model on the overlap depth, set ```overlap``` in the config file to ```True```.
+
+To evaluate the model:
+
+```bash
+python  eval.py  \
+
+--config_file  ./configs/ddp/baseline_ddp_384_front_sp_con_pre_0.001_sptp_con_0.2_flipv5.yaml  \
+
+--weight_path  ./results/baseline_ddp_384_front_sp_con_pre_0.001_sptp_con_0.2_flipv5/models/weights_19
+```
+
+# Cite
+If you find our work useful, please consider citing our paper:
+
+```bibtex
+@article{abualhanud2025cylinderdepth,
+  title={CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation},
+  author={Abualhanud, Samer and Grannemann, Christian and Mehltretter, Max},
+  journal={arXiv preprint arXiv:2511.16428},
+  year={2025}
+}
+```
+
+
+# Notes
+We would like to thank the authors of [VFDepth](https://github.com/42dot/VFDepth), [SurroundDepth](https://github.com/weiyithu/SurroundDepth), [CVCDepth](https://github.com/denyingmxd/CVCDepth), and [MonoDepth2](https://github.com/nianticlabs/monodepth2). This codebase builds upon and benefits greatly from their valuable open-source contributions.
