@@ -1,7 +1,8 @@
 
 # CylinderDepth
 
-  
+### **CVPR 2026 Workshops (3DMV)**
+
 
 **CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation**
 
@@ -41,7 +42,7 @@ python tools/export_overlap_depth_nuscenes.py
 
   
 
-You can download the pre-trained checkpoints for ddad and nuscens here:
+You can download the pre-trained checkpoints for DDAD and nuScenes here:
 https://huggingface.co/samerabualhanud/CylinderDepth/tree/main
   
 
@@ -52,7 +53,6 @@ https://huggingface.co/samerabualhanud/CylinderDepth/tree/main
  cd CylinderDepth
  conda env create -f CylinderDepth.yml
  conda activate CylinderDepth
- pip install torch==1.12.0+cu113 torchvision==0.13.0+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
  cd external/dgp
  pip install -r requirements.txt -r requirements-dev.txt
  pip install --editable .
@@ -97,14 +97,15 @@ python  eval.py  \
 ```
 
 # Cite
-If you find our work useful, please consider citing our paper:
+If you find our work useful, please cite our paper:
 
 ```bibtex
-@article{abualhanud2025cylinderdepth,
-  title={CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation},
-  author={Abualhanud, Samer and Grannemann, Christian and Mehltretter, Max},
-  journal={arXiv preprint arXiv:2511.16428},
-  year={2025}
+@InProceedings{Abualhanud2026,
+  author    = {Abualhanud, Samer and Grannemann, Christian and Mehltretter, Max},
+  booktitle = {{Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops}},
+  title     = {{CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation}},
+  year      = {2026},
+  note     = {Accepted for publication.}
 }
 ```
 

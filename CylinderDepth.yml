@@ -159,7 +159,6 @@ dependencies:
       - click==8.1.8
       - colorama==0.4.6
       - coverage==6.0.2
-      # - dgp==1.0
       - dill==0.4.0
       - diskcache==5.6.3
       - distlib==0.4.0
@@ -199,8 +198,6 @@ dependencies:
       - timm==0.6.12
       - toml==0.10.2
       - tomlkit==0.13.3
-      # - torch==1.12.0+cu113
-      # - torchvision==0.13.0+cu113
       - typing-extensions==4.15.0
       - tzdata==2025.2
       - ujson==5.4.0
@@ -208,3 +205,6 @@ dependencies:
       - xarray==2022.6.0
       - yapf==0.31.0
       - nuscenes-devkit==1.2.0
+      - --extra-index-url https://download.pytorch.org/whl/cu113
+      - torch==1.12.0+cu113
+      - torchvision==0.13.0+cu113
