@@ -71,7 +71,7 @@ Change the data paths in ```dataset/ddad_dataset.py```,```dataset/nusc_dataset.p
 ```bash
 python  train.py  \
 
---config_file  ./configs/ddp/nuscenes/nusc_baseline_352_ddp_min_1.0_front_sp_con_0.001_sptp_con_0.05_flipv5_34_106.yaml
+--config_file  ./configs/ddp/nuscenes/nusc_baseline_352_ddp_min_1.0_front_sp_con_0.001_sptp_con_0.05_flipv5.yaml
 ```
 
 ### nuScenes
