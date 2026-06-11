@@ -100,12 +100,12 @@ python  eval.py  \
 If you find our work useful, please cite our paper:
 
 ```bibtex
-@InProceedings{Abualhanud2026,
-  author    = {Abualhanud, Samer and Grannemann, Christian and Mehltretter, Max},
-  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision Workshops},
-  title     = {CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation},
-  year      = {2026},
-  note     = {Accepted for publication.}
+@inproceedings{abualhanud2026cylinderdepth,
+  title={CylinderDepth: Cylindrical Spatial Attention for Multi-View Consistent Self-Supervised Surround Depth Estimation},
+  author={Abualhanud, Samer and Grannemann, Christian and Mehltretter, Max},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={169--179},
+  year={2026}
 }
 ```
 
