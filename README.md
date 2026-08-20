@@ -67,14 +67,14 @@ To train the model:
 
 Change the data paths in ```dataset/ddad_dataset.py```,```dataset/nusc_dataset.py``` and the config files.
   
-### DDAD
+### nuScenes
 ```bash
 python  train.py  \
 
 --config_file  ./configs/ddp/nuscenes/nusc_baseline_352_ddp_min_1.0_front_sp_con_0.001_sptp_con_0.05_flipv5.yaml
 ```
 
-### nuScenes
+### DDAD
 ```bash
 python  train.py  \
 
